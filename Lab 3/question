@@ -1,0 +1,8 @@
+Take down today's lab
+
+Write a c program to implement file server in which the client accepts the name of the text file from the user and sends it to the server.
+The server then sends back the contents of the text file to the client which the displays it on the console. Client should send file name to the server until the client sends stop (connection oriented)
+
+Illustrate full duplex chat between client and server in a connection oriented environment.
+
+Illustrate half duplex chat between client and server.

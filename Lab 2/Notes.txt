@@ -1,0 +1,10 @@
+Client:Active open
+Server:Passive open
+
+headers needeed: sys/types.h;	sys/socket.h;	netinet/in.h
+
+int socket(int family, int socket, int protocol);//returns socket descripter or -1 if failure
+int bind(int sockfd, struct sockaddr*myaddr, sock...
+
+
+
