@@ -27,8 +27,6 @@ main()
 
 	printf("Enter the text\n");
 
-	
-
 	pid_t pid;
 	pid = fork();
 	while(1)
@@ -38,6 +36,7 @@ main()
 			printf("pid is 0\n");
 			scanf("%s",buff);
 			sentbytes=sendto(sockfd,buff,sizeof(buff),0,(struct sockaddr*) &serveraddr,sizeof(serveraddr));
+			printf("%d\n", sentbytes);
 			if(sentbytes==-1)
 			{
 				printf("!!");

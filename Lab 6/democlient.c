@@ -27,28 +27,19 @@ main()
 
 	printf("Enter the text\n");
 
-	pid_t pid;
-	pid = fork();
-	while(1)
-	{
-		if(pid == 0)
-		{
-			scanf("%s",buff);
-			sentbytes=sendto(sockfd,buff,sizeof(buff),0,(struct sockaddr*) &serveraddr,sizeof(serveraddr));
-			if(sentbytes==-1)
-			{
-				printf("!!");
-				close(sockfd);
-			}
-		}
-		else
-		{	
-			socklen_t actuallen=sizeof(serveraddr);
-			recedbytes=recvfrom(sockfd,buff,sizeof(buff),0,(struct sockaddr*) &serveraddr,&(actuallen));
-			puts(buff);
-			printf("\n");
+	scanf("%s",buff);
 
-		}
+
+	sentbytes=sendto(sockfd,buff,sizeof(buff),0,(struct sockaddr*) &serveraddr,sizeof(serveraddr));
+
+	if(sentbytes==-1)
+	{
+		printf("!!");
+		close(sockfd);
 	}
+	socklen_t actuallen=sizeof(serveraddr);
+	recedbytes=recvfrom(sockfd,buff,sizeof(buff),0,(struct sockaddr*) &serveraddr,&(actuallen));
+	puts(buff);
+	printf("\n");
 	close(sockfd);
 }
