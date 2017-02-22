@@ -47,7 +47,8 @@ int main()
 	{
 		close(sockfd);
 	}
-	recedbytes = recv(newsockfd, buff, sizeof(buff), 0);
+	char username[50];
+	recedbytes = recv(newsockfd, username, sizeof(username), 0);
 
 	if (recedbytes == -1)
 	{
