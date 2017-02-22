@@ -34,6 +34,7 @@ main()
 	}
 
 	pid_t pid;
+	recedbytes=recvfrom(sockfd,buff,sizeof(buff),0,(struct sockaddr*)&clientaddr,&(actuallen));
 	pid = fork();
 	while(1)
 	{

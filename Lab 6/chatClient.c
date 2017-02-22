@@ -28,7 +28,11 @@ main()
 	printf("Enter the text\n");
 
 	pid_t pid;
+	strcpy(buff,"Hi ishita!");
+	sentbytes=sendto(sockfd,buff,sizeof(buff),0,(struct sockaddr*) &serveraddr,sizeof(serveraddr));
 	pid = fork();
+
+	
 	while(1)
 	{
 		if(pid == 0)
