@@ -21,10 +21,11 @@ int main()
 	}
 	serveraddr.sin_family=AF_INET;
 	serveraddr.sin_port=htons(3333);
-	serveraddr.sin_addr.s_addr=inet_addr("172.16.53.101");
+	serveraddr.sin_addr.s_addr=inet_addr("127.0.0.1");
 	socklen_t len;
 	len = sizeof(serveraddr);
 	int pid;
+	scanf("%s",buffer);
 	sentbytes = sendto(sockfd, buffer, sizeof(buffer),0,(struct sockaddr*)&serveraddr, sizeof(serveraddr));
 	pid = fork();
 	while(1)

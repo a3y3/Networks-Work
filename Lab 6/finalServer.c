@@ -19,8 +19,8 @@ int main()
 		printf("\nSocket nahi bana.");
 	
 	serveraddr.sin_family=AF_INET;
-	serveraddr.sin_port=htons(3388);
-	serveraddr.sin_addr.s_addr=inet_addr("127.0.0.1");
+	serveraddr.sin_port=htons(3333);
+	serveraddr.sin_addr.s_addr=inet_addr("172.16.53.78");
 	retval = bind(sockfd, (struct sockaddr*)&serveraddr, sizeof(serveraddr));
 	if(retval == -1)
 	{
