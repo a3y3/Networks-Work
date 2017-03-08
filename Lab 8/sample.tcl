@@ -9,7 +9,7 @@ set ns [new Simulator]
 #generates an NS simulator object instance, and assigns it to variable ns
 
 
-
+ 
 #2a. Turn on NAM (network animator)
 
 set nm [open out.nam w] 
