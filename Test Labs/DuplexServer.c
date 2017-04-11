@@ -35,10 +35,10 @@ int main() {
 	pid = fork();
 	while (1) {
 		if (pid > 0) {
-			doSend();
+			doRecieve();
 		}
 		else {
-			doRecieve();
+			doSend();
 		}
 	}
 
@@ -50,7 +50,7 @@ void createSocket() {
 
 void bindSocket() {
 	serverAddress.sin_family = AF_INET;
-	serverAddress.sin_port = htons(3333);
+	serverAddress.sin_port = htons(3388);
 	serverAddress.sin_addr.s_addr = htons(INADDR_ANY);
 
 	bindFlag = bind(socketFD, (struct sockaddr *)&serverAddress, sizeof(serverAddress));
@@ -69,6 +69,7 @@ void doSend() {
 	printf("Send:");
 	scanf("%[^\n]%*c", buffer);
 	int sendFlag = send(newSocketFD_AfterListen, buffer, sizeof(buffer), 0);
+	printf("Value sent, sendFlag equals %d\n", sendFlag);
 	if (sendFlag == -1) {
 		printf("Sending error\n");
 	}
@@ -100,5 +101,10 @@ void quit() {
 	}
 	if (newSocketFD_AfterListen != -1) {
 		close(newSocketFD_AfterListen);
-	}
+	}/*
+	if(pid>0) kill(pid, SIGKILL);
+	else if(pid==0) kill(getppid(), SIGKILL);
+	if(socketFD!=-1)	close(socketFD);
+	if(newSocketFD_AfterListen!=-1) close(newSocketFD_AfterListen);*/
+	exit(0);
 }
